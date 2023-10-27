@@ -1,6 +1,15 @@
 # ignore .git and .cache folders
-.git*
+.git
+.github
+.gitignore
 .cache
+
+# ignore docker bits
+.dockerignore
+Dockerfile
+
+# ignore logs
+**/*.log
 
 # node excludes
 **/node_modules/
@@ -26,5 +35,5 @@ target
 *.code-workspace
 tags
 
-# Ignore OSX files
+# ignore OSX files
 .DS_Store
