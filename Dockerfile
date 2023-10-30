@@ -69,10 +69,14 @@ COPY --from=builder --chown=node /home/node/app/tsconfig.json .
 COPY --from=builder --chown=node /home/node/app/LICENSE* .
 COPY --from=builder --chown=node /home/node/app/*.md .
 
+ARG SITE_ENVS
+ENV SITE_ENVS=${SITE_ENVS:-'--host 0.0.0.0 --port 8000'}
+
 ARG SNAP_ENVS
-ENV SNAP_ENVS=${SNAP_ENVS:-'-H 0.0.0.0'}
+ENV SNAP_ENVS=${SNAP_ENVS:-'--port 8001'}
 
 EXPOSE 8000
+EXPOSE 8001
 
 ENTRYPOINT ["dumb-init", "--"]
-CMD ["yarn", "start"]
+CMD ["yarn", "serve"]

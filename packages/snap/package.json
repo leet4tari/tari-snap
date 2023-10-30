@@ -23,7 +23,7 @@
     "lint:eslint": "eslint . --cache --ext js,ts",
     "lint:fix": "yarn lint:eslint --fix && yarn lint:misc --write",
     "lint:misc": "prettier '**/*.json' '**/*.md' '!CHANGELOG.md' --ignore-path .gitignore",
-    "serve": "mm-snap serve",
+    "serve": "mm-snap serve ${SNAP_ENVS}",
     "start": "yarn build:wasm && mm-snap watch",
     "test": "jest"
   },
